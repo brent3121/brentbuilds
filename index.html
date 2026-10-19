@@ -48,7 +48,7 @@
 }
 </script>
 <style>
-:root{--paper:#f6f3ec;--paper-2:#fffdf8;--card:#fff;--navy:#1c2b3a;--navy-2:#22344a;--ink:#233240;--ink-soft:#4c5a67;--muted:#5a6672;--line:#e4ded2;--teal:#2b8f9c;--teal-deep:#1f6d78;--teal-soft:#e6f2f3;--gold:#c58a1e;--gold-soft:#f6ecd4;
+:root{--paper:#f6f3ec;--paper-2:#fffdf8;--card:#fff;--navy:#1c2b3a;--navy-2:#22344a;--ink:#233240;--ink-soft:#4c5a67;--muted:#48545f;--line:#e4ded2;--teal:#2b8f9c;--teal-deep:#1f6d78;--teal-soft:#e6f2f3;--gold:#c58a1e;--gold-soft:#f6ecd4;
 --serif:Georgia,"Iowan Old Style","Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--shadow:0 14px 40px rgba(28,43,58,.09);--shadow-sm:0 4px 14px rgba(28,43,58,.06)}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -60,8 +60,8 @@ h3{font-size:1.25rem}
 p{margin:0 0 1em}
 a{color:var(--teal-deep);text-underline-offset:3px}
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
-.wrap{max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
-.section{padding:clamp(56px,8vw,88px) 0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.section{padding:clamp(48px,7vw,72px) 0}
 .alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-deep);margin:0 0 10px}
 .lede{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--ink-soft);max-width:58ch}
@@ -87,7 +87,7 @@ a{color:var(--teal-deep);text-underline-offset:3px}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:28px}.photo{width:120px;height:120px;border-radius:18px;order:-1}}
 /* projects */
 .projects{display:grid;gap:22px}
-.proj{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,34px);box-shadow:var(--shadow-sm)}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,28px);box-shadow:var(--shadow-sm)}
 .proj-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin-bottom:6px}
 .status{font-size:.78rem;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:var(--gold-soft);color:#8a5d0e;white-space:nowrap}
 .status.teal{background:var(--teal-soft);color:var(--teal-deep)}
@@ -149,6 +149,23 @@ footer{background:var(--navy);color:#aeb9c8;text-align:center;font-size:.84rem;p
 @media(max-width:640px){.nav-link{display:none}}
 .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:10px 16px;z-index:100;border-radius:0 0 8px 0}
 .skip:focus{left:0}
+
+.resume-dialog{width:min(760px,calc(100% - 32px));max-height:85vh;overflow:auto;border:1px solid var(--line);border-radius:18px;background:var(--paper-2);color:var(--ink);padding:0;box-shadow:var(--shadow)}
+.resume-dialog::backdrop{background:rgba(28,43,58,.55);backdrop-filter:blur(3px)}
+.resume-inner{padding:clamp(24px,5vw,36px)}
+.resume-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+.resume-head h2{margin:0}
+.resume-role{color:var(--teal-deep);font-weight:600;margin:4px 0 0}
+.resume-meta{font-size:.9rem;color:var(--muted);margin:6px 0 0}
+.resume-close{flex:none;cursor:pointer;font:inherit}
+.resume-dialog h3{font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px}
+.resume-dialog h4{font-family:var(--serif);color:var(--navy);font-size:1.05rem;margin:14px 0 2px}
+.resume-when{font-size:.86rem;font-weight:600;color:var(--teal-deep);margin:0 0 6px}
+.resume-dialog ul{margin:6px 0 10px;padding-left:20px;color:var(--ink-soft)}
+.resume-dialog li{margin-bottom:5px}
+.resume-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px solid var(--line);margin-top:22px;padding-top:18px}
+.resume-foot span{font-size:.88rem;color:var(--muted)}
+button.btn{font-family:inherit;cursor:pointer}
 </style>
 </head>
 <body>
@@ -174,7 +191,7 @@ footer{background:var(--navy);color:#aeb9c8;text-align:center;font-size:.84rem;p
     <div class="btns">
       <a class="btn primary" href="mailto:brentbuilds.dev@gmail.com?subject=Hiring%20inquiry">Email me</a>
       <a class="btn" href="#work">See my work</a>
-      <a class="btn" href="resume.pdf">Résumé (PDF)</a>
+      <a class="btn" href="resume.pdf" data-resume-open>Résumé</a>
     </div>
     <span class="tag"><span class="dot"></span>Philippines (UTC+8) · Open to remote roles and freelance builds</span>
     <div class="stackline">Next.js · Supabase · Claude · Gemini · Grok</div>
@@ -261,11 +278,88 @@ footer{background:var(--navy);color:#aeb9c8;text-align:center;font-size:.84rem;p
   <div class="btns">
     <a class="btn primary" href="mailto:brentbuilds.dev@gmail.com">Email me</a>
     <a class="btn" href="https://www.linkedin.com/in/patrick-brent-santiago" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-    <a class="btn" href="resume.pdf">Résumé (PDF)</a>
+    <a class="btn" href="resume.pdf" data-resume-open>Résumé</a>
   </div>
   <p class="mail">brentbuilds.dev@gmail.com</p>
 </div></section>
 </main>
 <footer>© 2026 Patrick Brent Santiago · Sachi Tech</footer>
+
+<dialog class="resume-dialog" id="resume-dialog" aria-labelledby="resume-title">
+  <div class="resume-inner">
+    <div class="resume-head">
+      <div>
+        <h2 id="resume-title">Patrick Brent Santiago</h2>
+        <p class="resume-role">AI-First Product Builder · Full-Stack Developer</p>
+        <p class="resume-meta">Quezon City, Philippines (UTC+8) · Open to remote junior roles · +63 917 111 0224<br>brentbuilds.dev@gmail.com · linkedin.com/in/patrick-brent-santiago</p>
+      </div>
+      <button class="btn sm resume-close" type="button" data-resume-close aria-label="Close résumé">Close ✕</button>
+    </div>
+    <h3>Summary</h3>
+    <p>AI-first product builder and full-stack developer in Quezon City, Philippines (UTC+8), open to remote junior roles with US, EU, or APAC overlap. Building UniDorms (unidorms.ph) solo with AI-assisted development on Next.js, React, Node.js, Supabase Postgres, and Vercel; launching soon, pending government registration. Owns a feature from schema to deploy, writes clear async updates, and reviews payment and data changes before release.</p>
+    <h3>Experience</h3>
+    <h4>Founder and Full-Stack Developer — UniDorms (unidorms.ph)</h4>
+    <p class="resume-when">Sachi Tech · 2026 — Present</p>
+    <ul>
+      <li>Building a two-sided student-housing marketplace solo: listings, landlord KYC, host reputation, an admin dashboard, and transactional email. Launching soon; official launch is awaiting government registration.</li>
+      <li>Built the app in four months with AI-assisted development on Next.js, React, Tailwind, Node.js, and Supabase Postgres, with continuous deploys on Vercel.</li>
+      <li>Designed a Xendit escrow flow for launch: the first successful payment claims a room atomically, other payments refund automatically, and payouts need admin approval.</li>
+      <li>Replaced manual listing entry with a Gemini pipeline that validates rental posts and retries broken model output.</li>
+      <li>Added rate limits and automated tests around auth, payments, and listing writes.</li>
+    </ul>
+    <h4>Health Insurance Advisor — Sun Life of Canada</h4>
+    <p class="resume-when">Part-time, commission-only · MDRT Qualifier, 2026 · February 2025 — Present · Philippines</p>
+    <ul>
+      <li>MDRT Qualifier, 2026. Advise families on health and protection plans in spare time, from needs analysis through application and after-sales service.</li>
+      <li>Run my own pipeline and records, with no fixed hours, so engineering stays the primary work.</li>
+    </ul>
+    <h4>Sales Manager — Digital Network Communications</h4>
+    <p class="resume-when">2024 — September 2025</p>
+    <ul>
+      <li>Owned telecom projects and client accounts from scoping through delivery, and coordinated technical teams to hit schedule.</li>
+      <li>Inspected sites for feasibility and won accounts through direct outreach.</li>
+    </ul>
+    <h4>Accounting Intern — PGA Cars</h4>
+    <p class="resume-when">April — August 2023</p>
+    <ul>
+      <li>Kept bank records and job orders accurate in Excel for the finance team.</li>
+      <li>Checked transactions against source documents for internal audits.</li>
+      <li>Closed cash-advance liquidations on schedule.</li>
+    </ul>
+    <h3>Skills</h3>
+    <ul>
+      <li><b>Frontend:</b> React, Next.js, React Native, Tailwind, JavaScript.</li>
+      <li><b>Backend and infra:</b> Node.js, REST APIs, Supabase, PostgreSQL (Postgres), Vercel, Git.</li>
+      <li><b>Payments and AI:</b> Xendit, Resend, Claude, Gemini; AI-assisted development workflow.</li>
+      <li><b>Data:</b> SQL, Excel, Minitab.</li>
+    </ul>
+    <h3>Recognition</h3>
+    <p>MDRT Qualifier, 2026 — Million Dollar Round Table, health insurance.</p>
+    <h3>Education</h3>
+    <p>De La Salle University — Manila. B.S. Industrial Engineering, Minor in IT. 2019 — 2024.</p>
+    <div class="resume-foot">
+      <a class="btn sm primary" href="resume.pdf" download>Download PDF</a>
+      <span>PDF is the same résumé, for saving or printing.</span>
+    </div>
+  </div>
+</dialog>
+<script>
+(function(){
+  var dialog=document.getElementById('resume-dialog');
+  if(!dialog||typeof dialog.showModal!=='function')return;
+  var lastTrigger=null;
+  document.querySelectorAll('[data-resume-open]').forEach(function(link){
+    link.addEventListener('click',function(event){
+      event.preventDefault();lastTrigger=link;dialog.showModal();
+    });
+  });
+  dialog.querySelector('[data-resume-close]').addEventListener('click',function(){dialog.close();});
+  dialog.addEventListener('click',function(event){
+    var r=dialog.getBoundingClientRect();
+    if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();
+  });
+  dialog.addEventListener('close',function(){if(lastTrigger)lastTrigger.focus();});
+})();
+</script>
 </body>
 </html>
