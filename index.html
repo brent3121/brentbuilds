@@ -74,7 +74,7 @@ a{color:var(--teal-deep);text-underline-offset:3px}
 .nav-link.active{color:var(--teal-deep);background:var(--teal-soft);border-color:var(--teal)}
 .brand,.nav-link,.nav .btn{white-space:nowrap}
 @media(max-width:900px){.nav-right{gap:3px}.nav-link{padding:6px 8px;font-size:.84rem}}
-@media(max-width:760px){.nav-link{display:none}.brand{min-width:0;white-space:normal;line-height:1.25}}
+@media(max-width:760px){html{scroll-padding-top:138px}.nav{height:auto;min-height:60px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;row-gap:6px}.nav-right{order:2;width:100%;flex-wrap:wrap;gap:4px}.nav-link{display:inline-flex;flex:1 1 auto;padding:6px 6px;font-size:.82rem}.brand{min-width:0;white-space:normal;line-height:1.25}}
 /* buttons */
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--navy);color:var(--navy);background:transparent;transition:transform .15s,box-shadow .15s}
@@ -181,6 +181,7 @@ button.btn{font-family:inherit;cursor:pointer}
 .nw{white-space:nowrap}
 @media(max-width:640px){.resume-head{flex-direction:column-reverse}.resume-head>div{flex:auto;width:100%}.resume-close{align-self:flex-end}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+#team{padding-top:36px;padding-bottom:36px}#team .agents{gap:12px;margin-top:20px}#team .agent{padding:14px}.copy-note{font-size:.86rem;color:var(--teal-deep);min-height:1.4em;margin-top:8px}
 </style>
 </head>
 <body>
@@ -207,7 +208,7 @@ button.btn{font-family:inherit;cursor:pointer}
       <a class="btn" href="#work">See my work</a>
       <a class="btn" href="resume.pdf" data-resume-open>Résumé</a>
     </div>
-    <span class="tag"><span class="dot" aria-hidden="true"></span>Philippines (UTC+8) · Open to remote roles and freelance builds</span>
+    <span class="tag"><span class="dot" aria-hidden="true"></span>Available for remote roles and freelance — Manila, UTC+8.</span>
     <div class="stackline">Next.js · Supabase · Claude · Gemini · Grok</div>
   </div>
   <div class="photo-wrap"><span class="note" aria-hidden="true">that's me<svg width="34" height="30" viewBox="0 0 34 30"><path d="M2 26 C 12 22, 22 14, 30 4" stroke="#1f6d78" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M22 5 L30 4 L29 12" stroke="#1f6d78" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span><picture><source srcset="img/brent.webp" type="image/webp"><img class="photo" src="img/brent.jpg" alt="Patrick Brent Santiago" width="260" height="260"></picture></div>
@@ -289,13 +290,17 @@ button.btn{font-family:inherit;cursor:pointer}
   <p class="eyebrow">Contact</p>
   <h2>Have something to build?</h2>
   <p class="lede">I'm open to remote roles and freelance builds. Email me and I'll reply within a day.</p>
+  <p class="tag"><span class="dot" aria-hidden="true"></span>Available for remote roles and freelance — Manila, UTC+8.</p>
   <div class="btns">
-    <a class="btn primary" href="mailto:brentbuilds.dev@gmail.com">Email me</a>
+    <a class="btn primary" href="mailto:brentbuilds.dev@gmail.com?subject=Role%20opportunity%20for%20Patrick%20Brent%20Santiago&amp;body=Hi%20Patrick%2C%0A%0AI%27m%20reaching%20out%20about%20a%20role%3A%0A">Hire me for a role</a>
+    <a class="btn" href="mailto:brentbuilds.dev@gmail.com?subject=Freelance%20project%20inquiry&amp;body=Hi%20Patrick%2C%0A%0AI%27d%20like%20to%20build%3A%0A">Start a freelance project</a>
+    <button class="btn" type="button" data-copy-email>Copy email</button>
     <a class="btn" href="https://www.linkedin.com/in/patrick-brent-santiago" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
     <a class="btn" href="https://github.com/brent3121" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     <a class="btn" href="resume.pdf" data-resume-open>Résumé</a>
   </div>
   <p class="mail">brentbuilds.dev@gmail.com</p>
+  <p class="copy-note" data-copy-note aria-live="polite"></p>
 </div></section>
 </main>
 <footer><nav class="foot-links" aria-label="Footer"><a href="mailto:brentbuilds.dev@gmail.com">Email</a><a href="https://www.linkedin.com/in/patrick-brent-santiago" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/brent3121" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="resume.pdf" data-resume-open>Résumé</a><a href="#top">Back to top ↑</a></nav>© 2026 Patrick Brent Santiago · Sachi Tech</footer>
@@ -374,6 +379,24 @@ button.btn{font-family:inherit;cursor:pointer}
     if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();
   });
   dialog.addEventListener('close',function(){if(lastTrigger)lastTrigger.focus();});
+})();
+</script>
+<script>
+(function(){
+  var btn=document.querySelector('[data-copy-email]');
+  var note=document.querySelector('[data-copy-note]');
+  if(!btn)return;
+  var email='brentbuilds.dev@gmail.com';
+  function done(msg){if(note)note.textContent=msg;}
+  btn.addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(function(){done('Email copied: '+email);},function(){done(email);});
+    }else{
+      var ta=document.createElement('textarea');ta.value=email;document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy');done('Email copied: '+email);}catch(e){done(email);}
+      document.body.removeChild(ta);
+    }
+  });
 })();
 </script>
 <script>
