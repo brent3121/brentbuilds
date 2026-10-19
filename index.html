@@ -37,7 +37,7 @@
       "url": "https://brentbuilds.pages.dev/",
       "email": "mailto:brentbuilds.dev@gmail.com",
       "jobTitle": "AI-First Product Builder",
-      "sameAs": ["https://www.linkedin.com/in/patrick-brent-santiago"]
+      "sameAs": ["https://www.linkedin.com/in/patrick-brent-santiago", "https://github.com/brent3121"]
     },
     {
       "@type": "WebSite",
@@ -93,7 +93,7 @@ a{color:var(--teal-deep);text-underline-offset:3px}
 .proj h3{font-size:1.45rem}
 .proj p,.proj ul{max-width:68ch}
 .proj .btn{align-self:flex-start;margin-top:auto}
-.proj-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin-bottom:6px}
+.proj-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-bottom:6px}
 .status{font-size:.78rem;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:var(--gold-soft);color:#8a5d0e;white-space:nowrap}
 .status.teal{background:var(--teal-soft);color:var(--teal-deep)}
 .proj ul{margin:14px 0 18px;padding-left:20px;color:var(--ink-soft)}
@@ -128,13 +128,13 @@ a{color:var(--teal-deep);text-underline-offset:3px}
 .contact .lede{margin:0 auto}
 .mail{margin-top:18px;font-size:.92rem;color:var(--muted)}
 footer{background:var(--navy);color:#aeb9c8;text-align:center;font-size:.84rem;padding:18px 20px 26px}
+.proj-title{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:11px;flex:none;box-shadow:var(--shadow-sm)}
 .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin-bottom:6px}
 .foot-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:#dfe6ee;text-decoration:none;font-weight:600}
 .foot-links a:hover{text-decoration:underline}
 
 .hl{background:linear-gradient(transparent 62%,#bfe3e7 62%,#bfe3e7 92%,transparent 92%);padding:0 2px}
-.now{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;margin-bottom:18px;box-shadow:var(--shadow-sm)}
-.now i{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px var(--teal-soft)}
 .photo-wrap{position:relative}
 .photo{transform:rotate(3deg);border:6px solid #fff}
 .note{position:absolute;left:-74px;bottom:-30px;font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;font-size:1.5rem;color:var(--teal-deep);transform:rotate(-6deg)}
@@ -194,7 +194,6 @@ button.btn{font-family:inherit;cursor:pointer}
 <main id="top">
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="now"><i aria-hidden="true"></i>Now building: Deskboard v0.5</span>
     <p class="eyebrow">AI-First Product Builder</p>
     <h1>AI-first <span class="hl">full-stack builder</span>.</h1>
     <p class="lede">I ship Next.js + Supabase products end to end: scope, spec, build with AI coding tools, test, deploy. I built UniDorms.ph solo in four months. Open to remote roles worldwide.</p>
@@ -214,7 +213,7 @@ button.btn{font-family:inherit;cursor:pointer}
   <h2>What I've built</h2>
   <div class="projects">
     <article class="proj">
-      <div class="proj-head"><h3>UniDorms.ph</h3><span class="status">Launching soon</span></div>
+      <div class="proj-head"><div class="proj-title"><img class="logo" src="img/unidorms.svg" alt="" width="44" height="44"><h3>UniDorms.ph</h3></div><span class="status">Launching soon</span></div>
       <p>A two-sided student-housing marketplace that connects university students with ID-verified landlords. Built solo in four months with Claude.</p>
       <ul>
         <li>Listings, landlord ID checks, host reputation, an admin dashboard and email notifications.</li>
@@ -225,7 +224,7 @@ button.btn{font-family:inherit;cursor:pointer}
       <a class="btn sm" href="https://unidorms.ph" target="_blank" rel="noopener noreferrer">Visit unidorms.ph ↗</a>
     </article>
     <article class="proj">
-      <div class="proj-head"><h3>Deskboard</h3><span class="status teal">In progress · v0.5.0</span></div>
+      <div class="proj-head"><div class="proj-title"><img class="logo" src="img/deskboard.png" alt="" width="44" height="44"><h3>Deskboard</h3></div><span class="status teal">In progress · v0.5.0</span></div>
       <p>A local-first desktop app for Windows and macOS that lives on a second monitor. It started as a tool for myself and is turning into a product.</p>
       <ul>
         <li>An infinite board for notes, checklists and links, plus a planner.</li>
@@ -288,12 +287,13 @@ button.btn{font-family:inherit;cursor:pointer}
   <div class="btns">
     <a class="btn primary" href="mailto:brentbuilds.dev@gmail.com">Email me</a>
     <a class="btn" href="https://www.linkedin.com/in/patrick-brent-santiago" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a class="btn" href="https://github.com/brent3121" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     <a class="btn" href="resume.pdf" data-resume-open>Résumé</a>
   </div>
   <p class="mail">brentbuilds.dev@gmail.com</p>
 </div></section>
 </main>
-<footer><nav class="foot-links" aria-label="Footer"><a href="mailto:brentbuilds.dev@gmail.com">Email</a><a href="https://www.linkedin.com/in/patrick-brent-santiago" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="resume.pdf" data-resume-open>Résumé</a><a href="#top">Back to top ↑</a></nav>© 2026 Patrick Brent Santiago · Sachi Tech</footer>
+<footer><nav class="foot-links" aria-label="Footer"><a href="mailto:brentbuilds.dev@gmail.com">Email</a><a href="https://www.linkedin.com/in/patrick-brent-santiago" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/brent3121" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="resume.pdf" data-resume-open>Résumé</a><a href="#top">Back to top ↑</a></nav>© 2026 Patrick Brent Santiago · Sachi Tech</footer>
 
 <dialog class="resume-dialog" id="resume-dialog" aria-labelledby="resume-title">
   <div class="resume-inner">
